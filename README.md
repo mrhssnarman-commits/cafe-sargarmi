@@ -316,7 +316,7 @@ grid-template-columns:1fr;
 
 <div class="buttons">
 
-<a href="#" class="btn primary">
+<a href="https://rubika.ir/cafesargarmiii" class="btn primary">
 عضویت در کانال
 </a>
 
