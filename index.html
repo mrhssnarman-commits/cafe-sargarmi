@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>کافه سرگرمی</title>
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -17,117 +14,281 @@ font-family:tahoma;
 }
 
 body{
-background:linear-gradient(135deg,#0f0f0f,#1b0d19,#111);
-min-height:100vh;
+background:#090909;
+color:white;
+overflow-x:hidden;
+}
+
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+background:
+radial-gradient(circle at top right,#ff006622,transparent 30%),
+radial-gradient(circle at bottom left,#00d9ff22,transparent 30%);
+z-index:-1;
+}
+
+header{
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-padding:20px;
-color:white;
-}
-
-.card{
-width:100%;
-max-width:500px;
-background:rgba(255,255,255,.05);
-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,.1);
-border-radius:30px;
-padding:35px;
 text-align:center;
-box-shadow:0 0 30px rgba(0,0,0,.5);
+padding:20px;
 }
 
-h1{
-font-size:45px;
-margin-bottom:15px;
+.hero{
+max-width:800px;
+}
+
+.hero h1{
+font-size:70px;
 color:#ffd86b;
+margin-bottom:20px;
+text-shadow:0 0 20px #ffd86b55;
 }
 
-.line{
-width:120px;
-height:3px;
-background:#ffd86b;
-margin:0 auto 25px;
-border-radius:20px;
-}
-
-p{
+.hero p{
+font-size:24px;
 line-height:2;
-font-size:20px;
-color:#e3e3e3;
+color:#ddd;
 margin-bottom:30px;
 }
 
-.item{
-background:rgba(255,255,255,.06);
-padding:18px;
-margin-bottom:15px;
-border-radius:18px;
-font-size:20px;
-}
-
 .btn{
-display:block;
+display:inline-block;
+padding:18px 40px;
+background:linear-gradient(45deg,#ff0066,#ff8800);
+border-radius:20px;
 text-decoration:none;
-background:linear-gradient(45deg,#ff0055,#ff8a00);
-padding:18px;
-border-radius:18px;
 color:white;
 font-size:22px;
 font-weight:bold;
-margin-top:25px;
 transition:.3s;
+box-shadow:0 0 20px #ff006655;
 }
 
 .btn:hover{
-transform:scale(1.05);
+transform:translateY(-5px);
 }
 
-.footer{
-margin-top:25px;
-font-size:15px;
-color:#aaa;
+.section{
+padding:80px 20px;
+max-width:1200px;
+margin:auto;
 }
 
+.title{
+text-align:center;
+font-size:45px;
+color:#ffd86b;
+margin-bottom:50px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.08);
+padding:30px;
+border-radius:25px;
+transition:.4s;
+text-align:center;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(255,255,255,.1);
+}
+
+.icon{
+font-size:60px;
+margin-bottom:20px;
+}
+
+.card h3{
+font-size:25px;
+margin-bottom:15px;
+}
+
+.card p{
+color:#ccc;
+line-height:1.8;
+}
+
+.stats{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25px;
+margin-top:60px;
+}
+
+.stat{
+background:#111;
+padding:25px;
+border-radius:20px;
+width:220px;
+text-align:center;
+border:1px solid #222;
+}
+
+.stat h2{
+font-size:40px;
+color:#ffd86b;
+margin-bottom:10px;
+}
+
+.cta{
+padding:100px 20px;
+text-align:center;
+}
+
+.cta h2{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.cta p{
+font-size:22px;
+color:#ccc;
+margin-bottom:30px;
+}
+
+footer{
+padding:30px;
+text-align:center;
+border-top:1px solid #222;
+color:#888;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:45px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.title{
+font-size:35px;
+}
+
+.cta h2{
+font-size:35px;
+}
+
+}
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<div class="bg"></div>
 
-<h1>کافه سرگرمی</h1>
+<header>
 
-<div class="line"></div>
+<div class="hero">
+
+<h1>☕ کافه سرگرمی</h1>
 
 <p>
-😎 به دنیای سرگرمی خوش اومدی
-
-✨ بهترین ویدیوها، ماشین بازی،
-مود ماینکرافت، میم، آهنگ فانکی،
-جوک و کلی محتوای خفن اینجاست 🚀
+به دنیای سرگرمی خوش اومدی 😎
+<br>
+ماشین بازی، مود ماینکرافت، میم، آهنگ‌های فانکی،
+جوک‌های داغ و کلی محتوای خفن 🚀
 </p>
-
-<div class="item">🚗 ماشین بازی و کلیپ خفن</div>
-
-<div class="item">🎮 مود بازی و ماینکرافت</div>
-
-<div class="item">😂 میم و جوک های داغ</div>
-
-<div class="item">🎵 آهنگ فانکی و ترند</div>
-
-<div class="item">🔥 ویدیوهای خفن و وایرال</div>
 
 <a href="https://rubika.ir/cafesargarmiii" class="btn">
 عضویت در کانال 🚀
 </a>
 
-<div class="footer">
-کافه سرگرمی | Entertainment Cafe
+</div>
+
+</header>
+
+<section class="section">
+
+<h2 class="title">
+🔥 چه چیزهایی پیدا می‌کنی؟
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">🚗</div>
+<h3>ماشین بازی</h3>
+<p>بهترین کلیپ‌ها، تصادف‌ها و ماشین‌های خفن.</p>
+</div>
+
+<div class="card">
+<div class="icon">🎮</div>
+<h3>مود بازی</h3>
+<p>مودهای جذاب برای ماینکرافت و بازی‌های مختلف.</p>
+</div>
+
+<div class="card">
+<div class="icon">😂</div>
+<h3>میم و جوک</h3>
+<p>خنده‌دارترین میم‌ها و جوک‌های روز.</p>
+</div>
+
+<div class="card">
+<div class="icon">🎵</div>
+<h3>آهنگ فانکی</h3>
+<p>موزیک‌های ترند و فانکی برای همه سلیقه‌ها.</p>
 </div>
 
 </div>
+
+<div class="stats">
+
+<div class="stat">
+<h2>🚀</h2>
+<p>محتوای روزانه</p>
+</div>
+
+<div class="stat">
+<h2>🔥</h2>
+<p>پست‌های جذاب</p>
+</div>
+
+<div class="stat">
+<h2>🎮</h2>
+<p>گیم و سرگرمی</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>همین حالا عضو شو 😎</h2>
+
+<p>
+هر روز کلی محتوای جدید و سرگرم‌کننده در انتظارت هست.
+</p>
+
+<a href="https://rubika.ir/cafesargarmiii" class="btn">
+ورود به کانال
+</a>
+
+</section>
+
+<footer>
+© 2026 | کافه سرگرمی
+</footer>
 
 </body>
 </html>
