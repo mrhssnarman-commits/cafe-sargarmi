@@ -2,121 +2,138 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Number Hunter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>راز هیتلر+</title>
 
 <style>
 body{
+background:#111;
+color:white;
 font-family:tahoma;
-background:#0f172a;
-color:#fff;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-margin:0;
-}
-
-.card{
-background:#1e293b;
-padding:30px;
-border-radius:20px;
-width:320px;
 text-align:center;
-box-shadow:0 0 20px rgba(0,0,0,.4);
+padding:20px;
 }
 
 h1{
-color:#38bdf8;
+color:gold;
 }
 
 input{
-width:100%;
-padding:12px;
-margin:15px 0;
-border:none;
-border-radius:10px;
-font-size:18px;
+padding:10px;
+margin:5px;
+width:220px;
 }
 
 button{
-padding:12px 20px;
-border:none;
-border-radius:10px;
-background:#38bdf8;
-color:white;
+padding:10px 20px;
+margin:5px;
 cursor:pointer;
-font-size:18px;
 }
 
-#msg{
-margin-top:15px;
-font-size:20px;
+.player{
+background:#222;
+padding:10px;
+margin:5px;
+border-radius:10px;
 }
 
-.score{
-margin-top:20px;
+.role{
+color:#ffd700;
+font-weight:bold;
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<h1>🎭 راز هیتلر+</h1>
 
-<h1>🎯 شکارچی عدد</h1>
+<div id="setup">
 
-<p>یک عدد بین 1 تا 100 حدس بزن</p>
+<input id="p1" placeholder="بازیکن 1">
+<input id="p2" placeholder="بازیکن 2">
+<input id="p3" placeholder="بازیکن 3">
+<input id="p4" placeholder="بازیکن 4">
+<input id="p5" placeholder="بازیکن 5">
+<input id="p6" placeholder="بازیکن 6">
 
-<input type="number" id="guess">
+<br>
 
-<button onclick="checkGuess()">حدس بزن</button>
+<button onclick="startGame()">
+شروع بازی
+</button>
 
-<div id="msg"></div>
-
-<div class="score">
-امتیاز: <span id="score">100</span>
 </div>
 
-</div>
+<div id="game"></div>
 
 <script>
 
-let secret=Math.floor(Math.random()*100)+1;
-let score=100;
+const roles=[
+"شهروند",
+"شهروند",
+"آزرائیل",
+"جلاد",
+"هیتلر",
+"استالین"
+];
 
-function checkGuess(){
+function shuffle(array){
 
-let guess=Number(document.getElementById("guess").value);
+for(let i=array.length-1;i>0;i--){
 
-if(!guess)return;
+let j=Math.floor(Math.random()*(i+1));
 
-if(guess===secret){
-
-document.getElementById("msg").innerHTML=
-"🏆 برنده شدی!";
-
+[array[i],array[j]]=[array[j],array[i]];
 }
 
-else if(guess>secret){
-
-score-=10;
-document.getElementById("msg").innerHTML=
-"📉 عدد کوچکتره";
-
+return array;
 }
 
-else{
+function startGame(){
 
-score-=10;
-document.getElementById("msg").innerHTML=
-"📈 عدد بزرگتره";
+let players=[];
 
+for(let i=1;i<=6;i++){
+
+let name=document.getElementById("p"+i).value;
+
+if(name.trim()==""){
+
+alert("نام همه بازیکن‌ها را وارد کنید");
+return;
 }
 
-if(score<0)score=0;
+players.push(name);
+}
 
-document.getElementById("score").innerText=score;
+let shuffledRoles=shuffle([...roles]);
+
+let html="<h2>نقش‌ها</h2>";
+
+for(let i=0;i<players.length;i++){
+
+html+=`
+<div class="player">
+${players[i]}
+<br>
+<span class="role">
+${shuffledRoles[i]}
+</span>
+</div>
+`;
+}
+
+html+=`
+<br>
+<button onclick="location.reload()">
+بازی جدید
+</button>
+`;
+
+document.getElementById("game").innerHTML=html;
+
+document.getElementById("setup").style.display="none";
 
 }
 
